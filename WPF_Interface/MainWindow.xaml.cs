@@ -14,10 +14,13 @@ namespace WpfApp1
         {
             InitializeComponent();
             this.Opacity = 0;
-            this.Activated += (o,e) =>{ 
+            this.Activated += initialAnimotion;
+
+            void initialAnimotion(object sender,object e)
+            {
+                this.Activated -= initialAnimotion;
                 Utilities.WindowStartAnimotion(this);
-            };
-            
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -106,9 +109,9 @@ namespace WpfApp1
         }
         private void Dispose()
         {
-            Utilities.WindowHideAnimotion(this, async () =>
+            Utilities.WindowHideAnimotion(this, () =>
             {
-                await Task.Delay(1000);
+                //await Task.Delay(1000);
                 this.Close();
             });
         }
