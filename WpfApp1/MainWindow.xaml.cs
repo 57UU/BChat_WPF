@@ -13,8 +13,10 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            //this.Opacity = 0;
-            
+            this.Opacity = 0;
+            this.Activated += (o,e) =>{ 
+                Utilities.WindowStartAnimotion(this);
+            };
             
         }
 

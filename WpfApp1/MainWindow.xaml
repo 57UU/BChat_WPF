@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="BChat"  Width="482" ResizeMode="NoResize" FontSize="15" Height="348" WindowStyle="None">
+        Title="BChat"  Width="482" ResizeMode="NoResize" FontSize="15" 
+        Height="348" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        >
     <Grid HorizontalAlignment="Center" Width="482" >
 
         <WrapPanel VerticalAlignment="Center" Height="348">
