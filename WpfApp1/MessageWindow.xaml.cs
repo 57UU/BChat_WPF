@@ -25,6 +25,7 @@ namespace WpfApp1
             this.title.Text = title;
             this.content.Text = content;
             this.Owner = o;
+            close.Focus();
         }
 
         private void Label_MouseUp(object sender, MouseButtonEventArgs e)
@@ -59,7 +60,7 @@ namespace WpfApp1
         /// </summary>
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            i += 1;
+/*            i += 1;
             System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 300);
             timer.Tick += (s, e1) => { timer.IsEnabled = false; i = 0; };
@@ -71,7 +72,7 @@ namespace WpfApp1
                 i = 0;
                 this.WindowState = this.WindowState == WindowState.Maximized ?
                               WindowState.Normal : WindowState.Maximized;
-            }
+            }*/
         }
 
         /// <summary>
@@ -116,7 +117,7 @@ namespace WpfApp1
         {
             try
             {
-                Clipboard.SetDataObject(content.Text);
+                Clipboard.SetText(content.Text);
             }catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -125,6 +126,11 @@ namespace WpfApp1
             
             copyBtn.Content = "Copied";
             copyBtn.IsEnabled = false;
+        }
+
+        private void copyBtn_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Dispose();
         }
     }
 }
