@@ -14,7 +14,6 @@ namespace BChatKernel
     public record Friend {
         public int id;
         public string nickname;
-    
     }
 
     public interface BChatInterface
