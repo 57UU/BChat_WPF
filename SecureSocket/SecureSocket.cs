@@ -8,7 +8,7 @@ using SecureSocket;
 namespace SecureSocket
 {
    
-    class SecureSocket
+    public class SecureSocket
     {
         private Socket socket;
         public SecureSocket(string IP,int port) 

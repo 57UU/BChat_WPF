@@ -13,4 +13,8 @@
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SecureSocket\SecureSocket.csproj" />
+  </ItemGroup>
+
 </Project>

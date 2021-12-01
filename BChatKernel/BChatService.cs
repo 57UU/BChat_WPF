@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace BChatKernel;
 
-public class BChatService
+public sealed class BChatService
 {
+    //friens list
+    private Dictionary<long, Friend> friends = new();
+    //conmunication socket
+    private SecureSocket.SecureSocket socket = new();
+    public BChatService(IBChatInterface chatInterface,long id,string password)
+    {
+        this.Interface = chatInterface;
+        
+    }
+    private IBChatInterface Interface;
+    public void SendFriendMessage(Message message)
+    {
+
+    }
 
 }
 
