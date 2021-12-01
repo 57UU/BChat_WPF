@@ -11,10 +11,14 @@ public sealed class BChatService
     //friens list
     private Dictionary<long, Friend> friends = new();
     //conmunication socket
-    private SecureSocket.SecureSocket socket = new();
-    public BChatService(IBChatInterface chatInterface,long id,string password)
+    private SecureSocket.SecureSocket socket;
+
+    public BChatService(BChatBuildConfig config)
     {
-        this.Interface = chatInterface;
+        this.Interface = config.bChatInterface;
+        socket = new SecureSocket.SecureSocket(config.ip,config.port);
+
+
         
     }
     private IBChatInterface Interface;

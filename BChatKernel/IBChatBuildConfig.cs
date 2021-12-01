@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace BChatKernel;
 
-internal interface IBChatBuildConfig
+public record BChatBuildConfig
 {
-    public string password { get; set; }
-    public int username { get; set; }
-
+    public string password;
+    public int username;
+    public IBChatInterface bChatInterface;
+    public string ip;
+    public int port;
 }
 
