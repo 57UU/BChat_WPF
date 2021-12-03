@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace WpfApp1
+namespace WPF_Interface
 {
     internal class Utilities
     {
@@ -105,6 +105,10 @@ namespace WpfApp1
                 task();
             };
             sto.Begin();
+        }
+        public static void CrossThread(LaterTask task)
+        {
+            Assets.assets.initialWindow.Dispatcher.Invoke(task);
         }
     }
 }

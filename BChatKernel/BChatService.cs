@@ -21,6 +21,10 @@ public sealed class BChatService
         this.Interface = config.bChatInterface;
         this.config = config;
     }
+    public void Stop()
+    {
+        thread.Interrupt();
+    }
     public void Connect()
     {
         thread=new Thread(() =>
@@ -31,7 +35,7 @@ public sealed class BChatService
             }
             catch (Exception e)
             {
-                occur(e);
+                Interface.OnLoginError(e,LoginErrorType.Net);
                 thread.Interrupt();
             }
         });

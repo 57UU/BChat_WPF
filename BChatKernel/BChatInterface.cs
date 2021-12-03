@@ -22,8 +22,8 @@ public enum LoginErrorType { Net,Account}
 public interface IBChatInterface
 {
     //net 
-    public void OnLoginError(LoginErrorType type);
-    public void onConnectionLost();
+    public void OnLoginError(Exception e,LoginErrorType type);
+    public void onConnectionLost(Exception e);
 
     //message
     public void OnReceivingFriendMessage(Message message);

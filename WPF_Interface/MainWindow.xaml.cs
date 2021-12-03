@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using WPF_Interface;
 using BChatKernel;
 
-namespace WpfApp1
+namespace WPF_Interface
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -14,6 +14,7 @@ namespace WpfApp1
     {
         public MainWindow()
         {
+            Assets.assets.initialWindow = this;
             InitializeComponent();
             this.Opacity = 0;
             this.Activated += initialAnimotion;
@@ -29,8 +30,11 @@ namespace WpfApp1
         {
             if (verify())
             {
+                status.Content = "Password or account can't br null";
                 return;
             }
+            status.Content = "Logging in";
+            loginBtn.IsEnabled = false;
             Assets.assets.kernel = new BChatService(new BChatBuildConfig()
             {
                 ip = "127.0.0.1",
@@ -39,17 +43,14 @@ namespace WpfApp1
                 username = account.Text,
                 bChatInterface = Assets.assets.chatInterface
             });
-            Assets.assets.kernel.Connect((e) =>
-            {
-                new MessageWindow("Error","Can't connect to server",this).Show();
-            });
+            Assets.assets.kernel.Connect();
         }
         private bool verify()
         {
             if (account.Text == "" ||password.Password=="")
             {
-                Utilities.WindowStartAnimotion(
-                    new MessageWindow("Error", "Password or account can't br null",this));
+/*                Utilities.WindowStartAnimotion(
+                    new MessageWindow("Error", "Password or account can't br null",this));*/
                 return true;
             }
             return false;
