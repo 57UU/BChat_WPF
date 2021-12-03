@@ -8,10 +8,10 @@ namespace BChatKernel;
 
 public record BChatBuildConfig
 {
-    public string password;
-    public int username;
-    public IBChatInterface bChatInterface;
-    public string ip;
-    public int port;
+    public string password { get; set; }
+    public string username { get; set; }
+    public IBChatInterface bChatInterface { get; set; }
+    public string ip { get; set; }
+    public int port { get; set; }
 }
 

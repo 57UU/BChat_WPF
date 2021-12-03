@@ -9,4 +9,8 @@
     <StartupObject>WpfApp1.App</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BChatKernel\BChatKernel.csproj" />
+  </ItemGroup>
+
 </Project>

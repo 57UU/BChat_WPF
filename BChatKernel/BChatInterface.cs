@@ -26,4 +26,6 @@ public interface IBChatInterface
     //friend
     public void RequestAddFriend(int id);
     public void RequestDeleteFriend(int id);
+    //net
+    public void onConnectionLost();
 }

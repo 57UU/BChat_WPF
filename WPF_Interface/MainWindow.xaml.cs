@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using WPF_Interface;
+using BChatKernel;
 
 namespace WpfApp1
 {
@@ -16,7 +18,7 @@ namespace WpfApp1
             this.Opacity = 0;
             this.Activated += initialAnimotion;
 
-            void initialAnimotion(object sender,object e)
+            void initialAnimotion(object sender,EventArgs e)
             {
                 this.Activated -= initialAnimotion;
                 Utilities.WindowStartAnimotion(this);
@@ -25,15 +27,32 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            verify();
+            if (verify())
+            {
+                return;
+            }
+            Assets.assets.kernel = new BChatService(new BChatBuildConfig()
+            {
+                ip = "127.0.0.1",
+                port = 1234,
+                password = password.Password,
+                username = account.Text,
+                bChatInterface = Assets.assets.chatInterface
+            });
+            Assets.assets.kernel.Connect((e) =>
+            {
+                new MessageWindow("Error","Can't connect to server",this).Show();
+            });
         }
-        private void verify()
+        private bool verify()
         {
             if (account.Text == "" ||password.Password=="")
             {
                 Utilities.WindowStartAnimotion(
                     new MessageWindow("Error", "Password or account can't br null",this));
+                return true;
             }
+            return false;
 
         }
         #region 标题栏事件
