@@ -21,8 +21,7 @@ public sealed class BChatService
         this.Interface = config.bChatInterface;
         this.config = config;
     }
-    public delegate void ErrorOccur(Exception e);
-    public void Connect(ErrorOccur occur)
+    public void Connect()
     {
         thread=new Thread(() =>
         {
