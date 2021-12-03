@@ -17,7 +17,7 @@ public record Friend {
     public Status status;
 }
 public enum Status{online,offline}
-public enum LoginErrorType { Net,Account}
+public enum LoginErrorType { Net,Account,Cancelled }
 
 public interface IBChatInterface
 {

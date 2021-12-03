@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="BChat"  Width="482" ResizeMode="NoResize" FontSize="15" 
         Height="348" WindowStyle="None" WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True"
+        AllowsTransparency="True" BorderThickness="1,1,1,0" BorderBrush="DeepSkyBlue"
         >
     <Grid HorizontalAlignment="Center" Width="482" >
 

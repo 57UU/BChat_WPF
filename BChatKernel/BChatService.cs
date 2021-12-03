@@ -20,12 +20,17 @@ public sealed class BChatService
     {
         this.Interface = config.bChatInterface;
         this.config = config;
+
     }
     public void Stop()
     {
         thread.Interrupt();
     }
+    /// <summary>
+    /// to connect to server and start listening
+    /// </summary>
     public void Connect()
+        
     {
         thread=new Thread(() =>
         {
