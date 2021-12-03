@@ -17,13 +17,12 @@ public record Friend {
     public Status status;
 }
 public enum Status{online,offline}
-public enum LoginErrorType { Net,Account,Cancelled }
+public enum ErrorType { Net,Account_Error,Cancelled }
 
 public interface IBChatInterface
 {
     //net 
-    public void OnLoginError(Exception e,LoginErrorType type);
-    public void onConnectionLost(Exception e);
+    public void onConnectionLost(Exception e,ErrorType type);
 
     //message
     public void OnReceivingFriendMessage(Message message);

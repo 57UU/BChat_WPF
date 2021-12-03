@@ -25,6 +25,7 @@ public sealed class BChatService
     public void Stop()
     {
         thread.Interrupt();
+        Interface.onConnectionLost(null,ErrorType.Cancelled);
     }
     /// <summary>
     /// to connect to server and start listening
@@ -40,7 +41,7 @@ public sealed class BChatService
             }
             catch (Exception e)
             {
-                Interface.OnLoginError(e,LoginErrorType.Net);
+                Interface.onConnectionLost(e,ErrorType.Net);
                 thread.Interrupt();
             }
         });
