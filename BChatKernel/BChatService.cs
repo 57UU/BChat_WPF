@@ -33,6 +33,10 @@ public sealed class BChatService
     public void Connect()
         
     {
+        if(thread != null)
+        {
+            thread.Interrupt();
+        }
         thread=new Thread(() =>
         {
             try
@@ -41,13 +45,11 @@ public sealed class BChatService
             }
             catch (Exception e)
             {
-                Interface.onConnectionLost(e,ErrorType.Net);
+                Interface.onLoginError(e,ErrorType.Net);
                 thread.Interrupt();
             }
         });
         thread.Start();
-
-        
     }
     private IBChatInterface Interface;
     public void SendFriendMessage(Message message)

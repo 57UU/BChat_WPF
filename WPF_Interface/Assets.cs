@@ -11,16 +11,26 @@ namespace WPF_Interface;
 public class Assets
 {
     public static Assets assets=new Assets();
-    private Assets() { }
+    private Assets() {
+
+        buildConfig = new BChatBuildConfig() {
+            bChatInterface = chatInterface,
+            ip = "127.0.0.1",
+            port = 1234,
+        };
+        kernel = new BChatService(buildConfig);
+         
+    }
+    public BChatBuildConfig buildConfig;
     public BChatService kernel;
     public MainWindow initialWindow;
     public IBChatInterface chatInterface=new Interface();
 }
 public class Interface : IBChatInterface
 {
-    public void onConnectionLost(Exception e,ErrorType type)
+    public void onLoginError(Exception e,ErrorType errorType)
     {
-        switch (type)
+        switch (errorType)
         {
             case ErrorType.Net:
                 Utilities.CrossThread(() =>
@@ -36,7 +46,18 @@ public class Interface : IBChatInterface
                     Assets.assets.initialWindow.loginBtn.IsEnabled = true;
                 });
                 break;
+            case ErrorType.Cancelled:
+                Utilities.CrossThread(() =>
+                {
+                    Assets.assets.initialWindow.status.Content = "You cancelled this oparation";
+                    Assets.assets.initialWindow.loginBtn.IsEnabled = true;
+                });
+                break;
         }
+    }
+    public void onConnectionLost(Exception e,ErrorType type)
+    {
+
     }
 
 

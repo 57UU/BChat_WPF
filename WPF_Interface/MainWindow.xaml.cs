@@ -35,14 +35,16 @@ namespace WPF_Interface
             }
             status.Content = "Logging in";
             loginBtn.IsEnabled = false;
-            Assets.assets.kernel = new BChatService(new BChatBuildConfig()
-            {
-                ip = "127.0.0.1",
-                port = 1234,
-                password = password.Password,
-                username = account.Text,
-                bChatInterface = Assets.assets.chatInterface
-            });
+            /*            Assets.assets.kernel = new BChatService(new BChatBuildConfig()
+                        {
+                            ip = "127.0.0.1",
+                            port = 1234,
+                            password = password.Password,
+                            username = account.Text,
+                            bChatInterface = Assets.assets.chatInterface
+                        });*/
+            Assets.assets.buildConfig.password = password.Password;
+            Assets.assets.buildConfig.username = account.Text;
             Assets.assets.kernel.Connect();
         }
         private bool verify()
