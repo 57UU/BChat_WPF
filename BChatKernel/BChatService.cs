@@ -7,6 +7,7 @@ using System.Threading;
 
 namespace BChatKernel;
 
+public enum MessageTypes { login,msg,}
 public sealed class BChatService
 {
     private Thread thread;
@@ -42,19 +43,40 @@ public sealed class BChatService
             try
             {
                 socket = new SecureSocket.SecureSocket(config.ip, config.port);
+                socket.send(Utilities.ParseJsonToString(new LoginInfo()
+                {
+                    type = MessageTypes.login.ToString(),
+                    id = config.username,
+                    pass = config.password,
+                })) ;
+                Respond respond =  Utilities.ParseStringToJson<Respond>(socket.read());
+                
+
             }
             catch (Exception e)
             {
                 Interface.onLoginError(e,ErrorType.Net);
                 thread.Interrupt();
             }
+
+            StartListening();
         });
         thread.Start();
     }
     private IBChatInterface Interface;
-    public void SendFriendMessage(Message message)
+    public void SendFriendMessage(MessageInfo message)
     {
+       
+    }
+    private void StartListening()
+    {
+        try
+        {
 
+        }catch (Exception e)
+        {
+            Interface.onConnectionLost(e,ErrorType.Net);
+        }
     }
 
 }

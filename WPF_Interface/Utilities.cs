@@ -7,6 +7,10 @@ namespace WPF_Interface
 {
     internal class Utilities
     {
+        private Utilities()
+        {
+            throw new NotImplementedException();
+        }
         public static int interval = 1;
         public static double OpInterval = 0.08;
 

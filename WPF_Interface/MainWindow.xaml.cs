@@ -33,6 +33,15 @@ namespace WPF_Interface
                 status.Content = "Password or account can't br null";
                 return;
             }
+            try
+            {
+                Assets.assets.buildConfig.username = Convert.ToInt64(account.Text);
+            }
+            catch (Exception ex)
+            {
+                status.Content = "Please a number id";
+                return;
+            }
             status.Content = "Logging in";
             loginBtn.IsEnabled = false;
             /*            Assets.assets.kernel = new BChatService(new BChatBuildConfig()
@@ -44,7 +53,8 @@ namespace WPF_Interface
                             bChatInterface = Assets.assets.chatInterface
                         });*/
             Assets.assets.buildConfig.password = password.Password;
-            Assets.assets.buildConfig.username = account.Text;
+
+            
             Assets.assets.kernel.Connect();
         }
         private bool verify()

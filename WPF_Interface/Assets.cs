@@ -61,7 +61,7 @@ public class Interface : IBChatInterface
     }
 
 
-    public void OnReceivingFriendMessage(Message message)
+    public void OnReceivingFriendMessage(MessageInfo message)
     {
         throw new NotImplementedException();
     }

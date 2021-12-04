@@ -26,8 +26,8 @@
                    Foreground="White"/>
         </WrapPanel>
         <Button x:Name="loginBtn" Background="#66FFFFFF" Content="Login" Click="Button_Click" Margin="0,0,27,24" HorizontalAlignment="Right" Width="85" FontSize="14" BorderThickness="0,0,0,0" Height="40" VerticalAlignment="Bottom"/>
-        <TextBox Background="Transparent" x:Name="account" Margin="83,0,61,176" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" BorderThickness="0,0,0,2" />
-        <PasswordBox Background="Transparent" x:Name="password" Margin="83,0,61,97"  BorderThickness="0,0,0,2"  Height="20" VerticalAlignment="Bottom"/>
+        <TextBox Background="Transparent" x:Name="account" Margin="79,150,65,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,2" />
+        <PasswordBox Background="Transparent" x:Name="password" Margin="79,230,65,0"  BorderThickness="0,0,0,2"  Height="20" VerticalAlignment="Top"/>
         <Label Content="Account" Margin="41,0,356,206" VerticalAlignment="Bottom"/>
         <Label Content="Password" Margin="42,0,348,130" Height="28" VerticalAlignment="Bottom"/>
         <Label Content="BChat" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" FontSize="22"/>
