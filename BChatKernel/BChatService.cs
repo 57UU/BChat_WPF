@@ -43,13 +43,13 @@ public sealed class BChatService
             try
             {
                 socket = new SecureSocket.SecureSocket(config.ip, config.port);
-                socket.send(Utilities.ParseJsonToString(new LoginInfo()
+                socket.Send(Utilities.ParseJsonToString(new LoginInfo()
                 {
                     type = MessageTypes.login.ToString(),
                     id = config.username,
                     pass = config.password,
                 })) ;
-                Respond respond =  Utilities.ParseStringToJson<Respond>(socket.read());
+                Respond respond =  Utilities.ParseStringToJson<Respond>(socket.Read());
                 
 
             }

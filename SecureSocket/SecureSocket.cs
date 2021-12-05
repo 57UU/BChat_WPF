@@ -16,17 +16,17 @@ namespace SecureSocket
             //使用指定的地址簇协议、套接字类型和通信协议
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Connect(new IPEndPoint(IPAddress.Parse(IP), port));
-            init();
+            Init();
         }
 /*        public SecureSocket()
         {
             init();
         }*/
-        public string read()
+        public string Read()
         {
             return Utilities.AESDecrypt(readDirect(), AESKey);
         }
-        public void send(string msg)
+        public void Send(string msg)
         {
             string s = Utilities.AESEncrypt(msg, AESKey);
             //Console.WriteLine(s);
@@ -36,7 +36,7 @@ namespace SecureSocket
 
 
 
-        private void init()
+        private void Init()
         {
             var stream = new NetworkStream(socket);
             reader = new StreamReader(stream);
@@ -80,8 +80,8 @@ namespace SecureSocket
         public static void Main()
         {
             SecureSocket ss = new SecureSocket("127.0.0.1", 3333);
-            ss.send("Hi");
-            Console.WriteLine(ss.read());
+            ss.Send("Hi");
+            Console.WriteLine(ss.Read());
         }
 
     }
