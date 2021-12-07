@@ -34,4 +34,6 @@ public interface IBChatInterface
     //friend
     public void RequestAddFriend(int id);
     public void RequestDeleteFriend(int id);
+    //server
+    public void ImportMessage(MessageInfo message);
 }

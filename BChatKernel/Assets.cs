@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BChatKernel;
+﻿namespace BChatKernel;
 public record JsonBase
 {
     public string type { get; set; }
@@ -30,5 +23,5 @@ public record MessageInfo:JsonBase
 }
 public record Respond : JsonBase
 {
-
+    public string result { get; set; }
 }
