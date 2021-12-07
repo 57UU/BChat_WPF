@@ -11,6 +11,10 @@
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <DebugType>embedded</DebugType>
     <Authors>57U</Authors>
+    <Product>BChat</Product>
+    <Company>Blockers</Company>
+    <Copyright>no copyright</Copyright>
+    <Description>An online chatting programe</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
