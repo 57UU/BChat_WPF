@@ -14,11 +14,11 @@ namespace WPF_Interface
     {
         public MainWindow()
         {
-            Assets.assets.initialWindow = this;
-            InitializeComponent();
             this.Opacity = 0;
             this.Activated += initialAnimotion;
-
+            Assets.assets.initialWindow = this;
+            InitializeComponent();
+            
             void initialAnimotion(object sender,EventArgs e)
             {
                 this.Activated -= initialAnimotion;

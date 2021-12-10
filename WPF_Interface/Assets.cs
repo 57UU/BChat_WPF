@@ -75,5 +75,10 @@ public class Interface : IBChatInterface
     {
         throw new NotImplementedException();
     }
+
+    public void ImportMessage(MessageInfo message)
+    {
+        throw new NotImplementedException();
+    }
 }
 
