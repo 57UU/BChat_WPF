@@ -53,10 +53,9 @@ namespace WPF_Interface
                             bChatInterface = Assets.assets.chatInterface
                         });*/
             Assets.assets.buildConfig.password = password.Password;
-
-            
             Assets.assets.kernel.Connect();
         }
+        public string Status { set { status.Content = value; } get { return (string)status.Content; } }
         private bool verify()
         {
             if (account.Text == "" ||password.Password=="")

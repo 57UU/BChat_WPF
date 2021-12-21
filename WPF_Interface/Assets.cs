@@ -35,21 +35,21 @@ public class Interface : IBChatInterface
             case ErrorType.Net:
                 Utilities.CrossThread(() =>
                 {
-                    Assets.assets.initialWindow.status.Content = "Can't connect to server";
+                    Assets.assets.initialWindow.Status = "Can't connect to server";
                     Assets.assets.initialWindow.loginBtn.IsEnabled = true;
                 });
                 break;
             case ErrorType.Account_Error:
                 Utilities.CrossThread(() =>
                 {
-                    Assets.assets.initialWindow.status.Content = "Account or password is incorrect";
+                    Assets.assets.initialWindow.Status = "Account or password is incorrect";
                     Assets.assets.initialWindow.loginBtn.IsEnabled = true;
                 });
                 break;
             case ErrorType.Cancelled:
                 Utilities.CrossThread(() =>
                 {
-                    Assets.assets.initialWindow.status.Content = "You cancelled this oparation";
+                    Assets.assets.initialWindow.Status = "You cancelled this oparation";
                     Assets.assets.initialWindow.loginBtn.IsEnabled = true;
                 });
                 break;
