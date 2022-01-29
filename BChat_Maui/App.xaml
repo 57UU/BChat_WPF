@@ -15,6 +15,7 @@
                 <Setter Property="FontFamily" Value="OpenSansRegular" />
             </Style>
 
+            
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
                 <Setter Property="FontFamily" Value="OpenSansRegular" />
