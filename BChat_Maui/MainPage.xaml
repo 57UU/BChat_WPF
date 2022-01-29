@@ -1,0 +1,55 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BChat_Maui.MainPage"
+             BackgroundColor="{DynamicResource SecondaryColor}"
+             
+             
+             >
+
+    <VerticalStackLayout  Margin="30,50,30,0" Spacing="5">
+
+
+            <Label 
+                Margin="10"
+                Text="BChat:Login"
+                FontAttributes="Bold"
+            
+                FontSize="32"
+                HorizontalOptions="Start"
+                />
+
+            <Label 
+                Padding="0,20,0,0"
+                Text="Account:"
+                FontAttributes="Bold"
+               
+
+                FontSize="18"
+                HorizontalOptions="Start" />
+            <Entry 
+               x:Name="account"
+               Margin="0,20,0,0"
+                    />
+
+            <Label 
+                Text="Password"
+                
+                FontSize="18"
+                FontAttributes="Bold"
+                HorizontalOptions="Start" />
+            <Entry 
+                x:Name="password"
+                Margin="0,20,0,0"
+               
+               />
+            <Button 
+                Text="Login"
+                FontAttributes="Bold"
+                
+               Margin="10,40,10,10"
+                FontSize="16"
+                HorizontalOptions="Fill" />
+
+
+    </VerticalStackLayout>
+</ContentPage>
